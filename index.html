@@ -80,9 +80,15 @@
     --temp:0;
   }
   html{scroll-behavior:smooth;}
-  body{background:var(--bg); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
-  .font-display{font-family:'Inter Tight',sans-serif;}
+  body{background:var(--bg); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; line-height:1.5;}
+  .font-display{font-family:'Inter Tight',sans-serif; font-optical-sizing:auto;}
   .tabular{font-variant-numeric:tabular-nums;}
+
+  /* typography — tracking/leading are size-specific, never one value for all sizes */
+  h1{ letter-spacing:-0.03em; line-height:0.98; }
+  h2{ letter-spacing:-0.02em; line-height:1.06; }
+  h3{ letter-spacing:-0.008em; line-height:1.2; }
+  p{ line-height:1.6; }
 
   ::selection{background:var(--c3); color:#080C14;}
 
@@ -99,19 +105,49 @@
   .accent-border{ border-color: color-mix(in srgb, var(--c3) 45%, transparent); }
   .accent-glow{ box-shadow: 0 0 0 1px color-mix(in srgb, var(--c3) 35%, transparent), 0 0 40px -12px var(--c2); }
 
+  /* materials — translucent layers with weight; bright top edge = light catching the material */
   .glass{
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border:1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.045);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border:1px solid rgba(255,255,255,0.09);
+    border-top-color: rgba(255,255,255,0.22);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  /* heavier material for structural chrome (nav) vs lighter cards */
+  .glass-header{
+    background: rgba(8,12,20,0.62);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  /* scroll-edge fade instead of a hard divider line */
+  .scroll-edge{ position:relative; }
+  .scroll-edge::after{
+    content:''; position:absolute; left:0; right:0; top:100%; height:28px;
+    background:linear-gradient(to bottom, rgba(5,8,14,0.5), transparent);
+    pointer-events:none;
   }
 
-  /* reveal */
-  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  @media (prefers-reduced-transparency: reduce){
+    .glass, .glass-header{ background:#0E1524; backdrop-filter:none; -webkit-backdrop-filter:none; }
+  }
+  @media (prefers-contrast: more){
+    .glass, .glass-header{ background:#0B0F19; border-color:rgba(255,255,255,0.35); }
+  }
+
+  /* reveal — critically-damped ease-out curve, translated from spring response */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.16,.84,.32,1), transform .6s cubic-bezier(.16,.84,.32,1); }
   .reveal.reveal-visible{ opacity:1; transform:translateY(0); }
 
-  .reveal.reveal-scale{ transform:translateY(32px) scale(1.03); transition:opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1); }
+  .reveal.reveal-scale{ transform:translateY(32px) scale(1.03); transition:opacity .7s cubic-bezier(.16,.84,.32,1), transform .7s cubic-bezier(.16,.84,.32,1); }
   .reveal.reveal-scale.reveal-visible{ transform:translateY(0) scale(1); }
+
+  /* press feedback — respond on pointer-down, not on release */
+  .press{ transition:transform .12s cubic-bezier(.2,.8,.2,1); }
+  .press:active{ transform:scale(0.96); }
+
+  .knob-settle{ transition:transform .5s cubic-bezier(.34,1.56,.64,1); }
 
   /* van imagery */
   .van-frame{
@@ -139,6 +175,7 @@
     .reveal{ transform:none; transition:opacity .4s ease; }
     .reveal.reveal-scale{ transform:none; transition:opacity .4s ease; }
     .van-float{ animation:none; }
+    .knob-settle{ transition:none; }
     *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
   }
 
@@ -156,11 +193,11 @@
   /* thermostat */
   .dial-ring{ transition: box-shadow .3s ease; }
 
-  /* magnetic btn wrapper handled via JS transform */
-  .magnetic{ transition: transform .15s ease-out; will-change:transform; }
+  /* magnetic btn wrapper handled via JS transform; press feedback is instant, follow settles slightly slower */
+  .magnetic{ transition: transform .14s cubic-bezier(.2,.8,.2,1); will-change:transform; }
 
   /* accordion */
-  .acc-body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .4s ease; }
+  .acc-body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .4s cubic-bezier(.16,.84,.32,1); }
   .acc-body.open{ grid-template-rows:1fr; }
   .acc-body > div{ overflow:hidden; }
 
@@ -196,6 +233,10 @@ const { useState, useEffect, useRef, useCallback, useMemo } = React;
 
 /* ---------------- utilities ---------------- */
 
+function rubberband(overshoot, dimension, constant=0.55){
+  return (overshoot * dimension * constant) / (dimension + constant * Math.abs(overshoot));
+}
+
 function hexToRgb(hex){
   const v = hex.replace('#','');
   return [parseInt(v.slice(0,2),16), parseInt(v.slice(2,4),16), parseInt(v.slice(4,6),16)];
@@ -212,7 +253,7 @@ const COLD = { c1:'#0A1628', c2:'#1E5F8C', c3:'#7DD3FC' };
 const WARM = { c1:'#7C2D12', c2:'#EA580C', c3:'#FBBF24' };
 
 function applyTemp(t){ // t: 0(cold)-100(warm)
-  const k = t/100;
+  const k = Math.max(0, Math.min(100, t))/100;
   const c1 = lerpColor(COLD.c1, WARM.c1, k);
   const c2 = lerpColor(COLD.c2, WARM.c2, k);
   const c3 = lerpColor(COLD.c3, WARM.c3, k);
@@ -354,6 +395,14 @@ const FAQS = [
 
 function Magnetic({ children, className, as:Comp='button', ...rest }){
   const ref = useRef(null);
+  const offset = useRef({ x:0, y:0 });
+  const pressed = useRef(false);
+  const apply = ()=>{
+    const el = ref.current; if(!el) return;
+    const { x, y } = offset.current;
+    // press feedback lives on pointer-down, composed into the same transform as the magnetic follow
+    el.style.transform = `translate(${x}px, ${y}px) scale(${pressed.current ? 0.96 : 1})`;
+  };
   const onMove = (e)=>{
     const el = ref.current; if(!el) return;
     const r = el.getBoundingClientRect();
@@ -361,14 +410,18 @@ function Magnetic({ children, className, as:Comp='button', ...rest }){
     const my = e.clientY - (r.top + r.height/2);
     const dist = Math.sqrt(mx*mx+my*my);
     const radius = 70;
-    if(dist < radius*2.2){
-      const strength = Math.max(0, 1 - dist/(radius*2.2));
-      el.style.transform = `translate(${mx*0.35*strength}px, ${my*0.35*strength}px)`;
-    }
+    offset.current = dist < radius*2.2
+      ? { x: mx*0.35*Math.max(0, 1 - dist/(radius*2.2)), y: my*0.35*Math.max(0, 1 - dist/(radius*2.2)) }
+      : { x:0, y:0 };
+    apply();
   };
-  const onLeave = ()=>{ if(ref.current) ref.current.style.transform = 'translate(0,0)'; };
+  const onLeave = ()=>{ offset.current = { x:0, y:0 }; pressed.current = false; apply(); };
+  const onDown = ()=>{ pressed.current = true; apply(); };
+  const onUp = ()=>{ pressed.current = false; apply(); };
   return (
-    <Comp ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} className={"magnetic "+(className||'')} {...rest}>
+    <Comp ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}
+      onMouseDown={onDown} onMouseUp={onUp} onTouchStart={onDown} onTouchEnd={onUp}
+      className={"magnetic "+(className||'')} {...rest}>
       {children}
     </Comp>
   );
@@ -423,6 +476,8 @@ function Waveform({ flip=false }){
 function ThermostatDial({ temp, setTemp }){
   const ref = useRef(null);
   const dragging = useRef(false);
+  const [pressed, setPressed] = useState(false);
+  const [settling, setSettling] = useState(false);
 
   const angleFromEvent = (clientX, clientY)=>{
     const el = ref.current; if(!el) return null;
@@ -437,16 +492,36 @@ function ThermostatDial({ temp, setTemp }){
   };
 
   const setFromAngle = (deg)=>{
-    // dead zone bottom 60deg (300..360 excluded region maps to clamp)
+    // widen the raw input range slightly so there's room to feel the rubber-band before the hard input limit
     let usable = deg;
-    if(usable > 330) usable = 330;
-    if(usable < 30) usable = 30;
-    const pct = ((usable-30)/300)*100;
-    setTemp(Math.max(0, Math.min(100, pct)));
+    if(usable > 345) usable = 345;
+    if(usable < 15) usable = 15;
+    let pct = ((usable-30)/300)*100;
+    // soft resistance past the ends instead of a hard stop — real things slow before they stop
+    // (reduced motion drops the elastic overshoot in favor of a plain clamp)
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced){
+      pct = Math.max(0, Math.min(100, pct));
+    } else {
+      if(pct < 0) pct = -rubberband(-pct, 45, 0.6);
+      if(pct > 100) pct = 100 + rubberband(pct-100, 45, 0.6);
+    }
+    setTemp(pct);
   };
 
-  const onDown = (e)=>{ dragging.current = true; handleMove(e); };
-  const onUp = ()=>{ dragging.current = false; };
+  const onDown = (e)=>{ dragging.current = true; setPressed(true); setSettling(false); handleMove(e); };
+  const onUp = ()=>{
+    dragging.current = false;
+    setPressed(false);
+    setTemp(t=>{
+      if(t < 0 || t > 100){
+        setSettling(true);
+        window.setTimeout(()=>setSettling(false), 520);
+        return Math.max(0, Math.min(100, t));
+      }
+      return t;
+    });
+  };
   const handleMove = (e)=>{
     if(!dragging.current) return;
     const p = e.touches ? e.touches[0] : e;
@@ -468,8 +543,9 @@ function ThermostatDial({ temp, setTemp }){
     };
   },[]);
 
+  const clamped = Math.max(0, Math.min(100, temp));
   const knobDeg = 30 + (temp/100)*300 - 90; // convert back for CSS rotate (0deg = right in css rotate space matches atan convention roughly)
-  const label = temp < 33 ? 'Cooling' : temp > 66 ? 'Heating' : 'Balanced';
+  const label = clamped < 33 ? 'Cooling' : clamped > 66 ? 'Heating' : 'Balanced';
 
   return (
     <div className="flex flex-col items-center select-none" aria-hidden="false">
@@ -477,15 +553,15 @@ function ThermostatDial({ temp, setTemp }){
         ref={ref}
         role="slider"
         aria-label="Comfort temperature dial, drag to shift site theme between cooling and heating"
-        aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(temp)}
+        aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(clamped)}
         tabIndex={0}
         onKeyDown={(e)=>{
-          if(e.key==='ArrowLeft'||e.key==='ArrowDown') setTemp(Math.max(0,temp-5));
-          if(e.key==='ArrowRight'||e.key==='ArrowUp') setTemp(Math.min(100,temp+5));
+          if(e.key==='ArrowLeft'||e.key==='ArrowDown') setTemp(Math.max(0,clamped-5));
+          if(e.key==='ArrowRight'||e.key==='ArrowUp') setTemp(Math.min(100,clamped+5));
         }}
         onMouseDown={onDown}
         onTouchStart={onDown}
-        className="dial-ring relative w-52 h-52 md:w-64 md:h-64 rounded-full glass cursor-grab active:cursor-grabbing flex items-center justify-center"
+        className={"dial-ring relative w-52 h-52 md:w-64 md:h-64 rounded-full glass cursor-grab active:cursor-grabbing flex items-center justify-center transition-transform duration-150 " + (pressed ? 'scale-[0.985]' : 'scale-100')}
         style={{ boxShadow:`0 0 60px -10px var(--c2), inset 0 0 40px -10px var(--c3)` }}
       >
         <div className="absolute inset-3 rounded-full border border-white/10"></div>
@@ -499,7 +575,7 @@ function ThermostatDial({ temp, setTemp }){
         })}
 
         {/* knob */}
-        <div className="absolute w-5 h-5 rounded-full accent-grad accent-glow"
+        <div className={"absolute w-5 h-5 rounded-full accent-grad accent-glow " + (settling ? 'knob-settle' : '')}
           style={{ transform:`rotate(${knobDeg}deg) translate(98px) rotate(${-knobDeg}deg)` }} />
 
         <div className="text-center pointer-events-none">
@@ -594,7 +670,7 @@ function Header({ onNav }){
         <a href="#book" className="ml-2 accent-grad text-[#080C14] font-display font-semibold rounded-full px-4 py-1.5">Book Online</a>
       </div>
 
-      <header className={"sticky top-0 z-40 transition-all duration-300 " + (shrink ? 'py-2 glass shadow-[0_1px_0_rgba(255,255,255,0.06)]' : 'py-4 bg-transparent')}>
+      <header className={"sticky top-0 z-40 transition-all duration-300 " + (shrink ? 'py-2 glass-header scroll-edge' : 'py-4 bg-transparent')}>
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
           <a href="#/" className="flex items-center gap-2 font-display font-extrabold text-lg tracking-tight">
             <span className="w-8 h-8 rounded-lg accent-grad flex items-center justify-center text-sm">JC</span>
@@ -608,7 +684,7 @@ function Header({ onNav }){
             <CTAPrimary href="#book" className="!px-5 !py-2.5 text-sm">Book Free Estimate</CTAPrimary>
           </div>
           <button aria-label="Open menu" aria-expanded={mobileOpen} onClick={()=>setMobileOpen(true)}
-            className="md:hidden w-10 h-10 rounded-full glass flex items-center justify-center">
+            className="press md:hidden w-10 h-10 rounded-full glass flex items-center justify-center">
             <span className="sr-only">Menu</span>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4H16M2 9H16M2 14H16" stroke="white" strokeWidth="1.6" strokeLinecap="round"/></svg>
           </button>
@@ -621,7 +697,7 @@ function Header({ onNav }){
         <div className={"relative h-full flex flex-col px-8 pt-8 " + (mobileOpen ? 'mobile-nav-open' : '')}>
           <div className="flex items-center justify-between">
             <span className="font-display font-extrabold text-lg">Jersey City <span className="accent-text-grad">HVAC</span></span>
-            <button aria-label="Close menu" onClick={()=>setMobileOpen(false)} className="w-10 h-10 rounded-full glass flex items-center justify-center">
+            <button aria-label="Close menu" onClick={()=>setMobileOpen(false)} className="press w-10 h-10 rounded-full glass flex items-center justify-center">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="white" strokeWidth="1.6" strokeLinecap="round"/></svg>
             </button>
           </div>
@@ -645,10 +721,10 @@ function Header({ onNav }){
 function MobileBottomBar(){
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-40 grid grid-cols-2 gap-px bg-white/10 border-t border-white/10" style={{ paddingBottom:'env(safe-area-inset-bottom)' }}>
-      <a href={PHONE_TEL} className="bg-[#0B111F] text-center py-3.5 font-display font-semibold text-sm flex items-center justify-center gap-2">
+      <a href={PHONE_TEL} className="press bg-[#0B111F] text-center py-3.5 font-display font-semibold text-sm flex items-center justify-center gap-2">
         <span>📞</span> Call Now
       </a>
-      <a href="#book" className="accent-grad text-[#080C14] text-center py-3.5 font-display font-semibold text-sm flex items-center justify-center gap-2">
+      <a href="#book" className="press accent-grad text-[#080C14] text-center py-3.5 font-display font-semibold text-sm flex items-center justify-center gap-2">
         Book Online
       </a>
     </div>
@@ -725,7 +801,7 @@ function EmergencyBand(){
 
 function ServiceCard({ s, i }){
   return (
-    <a href={"#/services/"+s.slug} className="reveal trace-card group relative rounded-2xl glass p-7 flex flex-col gap-4 transition-transform duration-300 hover:-translate-y-1" style={{ transitionDelay:(i*60)+'ms' }}>
+    <a href={"#/services/"+s.slug} className="reveal trace-card group relative rounded-2xl glass p-7 flex flex-col gap-4 transition-transform duration-300 hover:-translate-y-1 active:scale-[0.98] active:duration-100" style={{ transitionDelay:(i*60)+'ms' }}>
       <div className="w-12 h-12 rounded-xl accent-grad flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">{s.icon}</div>
       <h3 className="font-display font-bold text-xl">{s.name}</h3>
       <p className="text-white/60 text-sm leading-relaxed">{s.short}</p>
@@ -992,9 +1068,9 @@ function ServiceArea(){
 function FAQItem({ item, open, onClick, i }){
   return (
     <div className="reveal border-b border-white/10" style={{ transitionDelay:(i*40)+'ms' }}>
-      <button onClick={onClick} aria-expanded={open} className="w-full flex items-center justify-between gap-4 py-6 text-left">
+      <button onClick={onClick} aria-expanded={open} className="group w-full flex items-center justify-between gap-4 py-6 text-left">
         <span className="font-display font-semibold text-lg">{item.q}</span>
-        <span className={"shrink-0 w-8 h-8 rounded-full glass flex items-center justify-center transition-transform duration-300 " + (open?'rotate-45':'')}>+</span>
+        <span className={"shrink-0 w-8 h-8 rounded-full glass flex items-center justify-center transition-transform duration-300 group-active:scale-90 " + (open?'rotate-45':'')}>+</span>
       </button>
       <div className={"acc-body " + (open?'open':'')}>
         <div><p className="text-white/60 leading-relaxed pb-6 max-w-2xl">{item.a}</p></div>
