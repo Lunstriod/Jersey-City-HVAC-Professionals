@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>HVAC Repair &amp; Installation in Jersey City, NJ | 24/7 Service</title>
+<meta name="description" content="Jersey City HVAC Professionals fix furnaces and AC across Hudson County — same-day diagnosis, upfront flat pricing, 24/7 emergency response. Licensed & insured. Call now." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌡️</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['"Inter Tight"', 'Inter', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          base: '#080C14',
+          panel: '#0E1524',
+        },
+      },
+    },
+  }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "Jersey City HVAC Professionals",
+  "image": "",
+  "telephone": "(908) 498-9690",
+  "email": "[PLACEHOLDER-EMAIL]",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[PLACEHOLDER-STREET]",
+    "addressLocality": "Jersey City",
+    "addressRegion": "NJ",
+    "postalCode": "[PLACEHOLDER-ZIP]",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Jersey City", "Hoboken", "Bayonne", "Union City", "West New York", "Weehawken", "North Bergen", "Secaucus", "Kearny", "Harrison"],
+  "openingHours": "Mo-Su 00:00-23:59",
+  "url": "https://example.com",
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How fast can you get to my home in Jersey City?","acceptedAnswer":{"@type":"Answer","text":"For no-heat and no-AC emergencies we aim to have a tech on site within 60 minutes, 24/7, anywhere in Hudson County."}},
+    {"@type":"Question","name":"Do you give upfront pricing before you start?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every job gets a flat, written price before we touch anything — no hourly guessing, no surprise invoice."}},
+    {"@type":"Question","name":"Are you licensed to work in New Jersey?","acceptedAnswer":{"@type":"Answer","text":"Yes, we're fully licensed and insured under NJ HVAC License #[PLACEHOLDER]."}},
+    {"@type":"Question","name":"What towns do you service?","acceptedAnswer":{"@type":"Answer","text":"Jersey City, Hoboken, Bayonne, Union City, West New York, Weehawken, North Bergen, Secaucus, Kearny, and Harrison."}},
+    {"@type":"Question","name":"Do you offer financing?","acceptedAnswer":{"@type":"Answer","text":"Yes, qualified customers can get 0% financing for 12 months on new system installs."}},
+    {"@type":"Question","name":"What's included in the Comfort Club membership?","acceptedAnswer":{"@type":"Answer","text":"Priority scheduling, two tune-ups per year, 15% off parts, and no trip fees for members."}},
+    {"@type":"Question","name":"Do you work on older buildings and walk-ups?","acceptedAnswer":{"@type":"Answer","text":"Constantly — Hudson County's housing stock is our specialty, from pre-war Jersey City brownstones to Hoboken high-rises."}},
+    {"@type":"Question","name":"Can you install ductless mini-splits in a unit with no ductwork?","acceptedAnswer":{"@type":"Answer","text":"Yes, ductless mini-splits are one of our most common installs in exactly that situation — no ducts required."}}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --c1:#0A1628; --c2:#1E5F8C; --c3:#7DD3FC;
+    --bg:#080C14;
+    --temp:0;
+  }
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
+  .font-display{font-family:'Inter Tight',sans-serif;}
+  .tabular{font-variant-numeric:tabular-nums;}
+
+  ::selection{background:var(--c3); color:#080C14;}
+
+  /* focus rings */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline:2px solid var(--c3); outline-offset:3px; border-radius:6px;
+  }
+
+  .accent-grad{ background-image:linear-gradient(135deg, var(--c2), var(--c3)); }
+  .accent-text-grad{
+    background-image:linear-gradient(135deg, var(--c3), var(--c2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .accent-border{ border-color: color-mix(in srgb, var(--c3) 45%, transparent); }
+  .accent-glow{ box-shadow: 0 0 0 1px color-mix(in srgb, var(--c3) 35%, transparent), 0 0 40px -12px var(--c2); }
+
+  .glass{
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+
+  /* reveal */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.reveal-visible{ opacity:1; transform:translateY(0); }
+
+  .reveal.reveal-scale{ transform:translateY(32px) scale(1.03); transition:opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1); }
+  .reveal.reveal-scale.reveal-visible{ transform:translateY(0) scale(1); }
+
+  /* van imagery */
+  .van-frame{
+    position:relative; border-radius:20px; padding:1px;
+    background:linear-gradient(135deg, #7DD3FC, #FBBF24);
+  }
+  .van-frame-inner{ border-radius:19px; overflow:hidden; background:#080C14; }
+  .van-frame img{ display:block; width:100%; height:100%; object-fit:cover; }
+  .van-glow{
+    position:absolute; top:50%; left:-15%; width:70%; height:130%; transform:translateY(-50%);
+    background:radial-gradient(circle, color-mix(in srgb, var(--c3) 35%, transparent), transparent 70%);
+    filter:blur(40px); z-index:-1; pointer-events:none;
+  }
+  .van-float{ animation:van-float 5s ease-in-out infinite; }
+  @keyframes van-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-6px); } }
+
+  .hero-van{
+    position:absolute; right:-4%; bottom:-6%; width:56%; max-width:760px;
+    opacity:0.38; filter:saturate(0.55) brightness(0.6) contrast(1.05);
+    pointer-events:none; user-select:none;
+  }
+  .hero-van img{ width:100%; height:auto; display:block; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ transform:none; transition:opacity .4s ease; }
+    .reveal.reveal-scale{ transform:none; transition:opacity .4s ease; }
+    .van-float{ animation:none; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
+  }
+
+  /* marquee */
+  .marquee-track{ display:flex; width:max-content; animation:marquee 32s linear infinite; }
+  @keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .marquee-pause:hover .marquee-track{ animation-play-state:paused; }
+
+  /* horizontal scroll snap */
+  .snap-row{ scroll-snap-type:x mandatory; }
+  .snap-item{ scroll-snap-align:start; }
+  .snap-row::-webkit-scrollbar{ height:6px; }
+  .snap-row::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.15); border-radius:99px; }
+
+  /* thermostat */
+  .dial-ring{ transition: box-shadow .3s ease; }
+
+  /* magnetic btn wrapper handled via JS transform */
+  .magnetic{ transition: transform .15s ease-out; will-change:transform; }
+
+  /* accordion */
+  .acc-body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .4s ease; }
+  .acc-body.open{ grid-template-rows:1fr; }
+  .acc-body > div{ overflow:hidden; }
+
+  /* card hover border trace */
+  .trace-card{ position:relative; isolation:isolate; }
+  .trace-card::before{
+    content:''; position:absolute; inset:0; border-radius:inherit; padding:1px;
+    background:linear-gradient(120deg, transparent, var(--c3), var(--c2), transparent);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    opacity:0; transition:opacity .4s ease; z-index:1; pointer-events:none;
+    background-size:200% 200%;
+  }
+  .trace-card:hover::before{ opacity:1; animation:trace 2.5s linear infinite; }
+  @keyframes trace{ to{ background-position:200% 200%; } }
+
+  /* nav slide */
+  .mobile-nav-link{ opacity:0; transform:translateY(12px); transition:opacity .4s ease, transform .4s ease; }
+  .mobile-nav-open .mobile-nav-link{ opacity:1; transform:translateY(0); }
+
+  input, select, textarea{ background:rgba(255,255,255,0.03); }
+  input::placeholder, textarea::placeholder{ color:rgba(255,255,255,0.35); }
+
+  .hide-scrollbar::-webkit-scrollbar{ display:none; }
+  .hide-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+</style>
+</head>
+<body class="text-white antialiased">
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+/* ---------------- utilities ---------------- */
+
+function hexToRgb(hex){
+  const v = hex.replace('#','');
+  return [parseInt(v.slice(0,2),16), parseInt(v.slice(2,4),16), parseInt(v.slice(4,6),16)];
+}
+function rgbToHex(r,g,b){
+  return '#' + [r,g,b].map(x=>Math.round(Math.max(0,Math.min(255,x))).toString(16).padStart(2,'0')).join('');
+}
+function lerpColor(hexA, hexB, t){
+  const a = hexToRgb(hexA), b = hexToRgb(hexB);
+  return rgbToHex(a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t);
+}
+
+const COLD = { c1:'#0A1628', c2:'#1E5F8C', c3:'#7DD3FC' };
+const WARM = { c1:'#7C2D12', c2:'#EA580C', c3:'#FBBF24' };
+
+function applyTemp(t){ // t: 0(cold)-100(warm)
+  const k = t/100;
+  const c1 = lerpColor(COLD.c1, WARM.c1, k);
+  const c2 = lerpColor(COLD.c2, WARM.c2, k);
+  const c3 = lerpColor(COLD.c3, WARM.c3, k);
+  const root = document.documentElement.style;
+  root.setProperty('--c1', c1);
+  root.setProperty('--c2', c2);
+  root.setProperty('--c3', c3);
+  root.setProperty('--temp', t);
+}
+
+function useReveal(){
+  const ref = useRef(null);
+  useEffect(()=>{
+    const el = ref.current;
+    if(!el) return;
+    const kids = el.querySelectorAll('.reveal');
+    const targets = kids.length ? kids : [el];
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach((entry, i)=>{
+        if(entry.isIntersecting){
+          const idx = Array.prototype.indexOf.call(targets, entry.target);
+          entry.target.style.transitionDelay = (Math.max(idx,0)*60) + 'ms';
+          entry.target.classList.add('reveal-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.15 });
+    targets.forEach(t=>io.observe(t));
+    return ()=>io.disconnect();
+  },[]);
+  return ref;
+}
+
+function useCounter(target, active, opts={}){
+  const [val, setVal] = useState(0);
+  useEffect(()=>{
+    if(!active) return;
+    let raf, start;
+    const dur = opts.duration || 1600;
+    const step = (ts)=>{
+      if(!start) start = ts;
+      const p = Math.min(1, (ts-start)/dur);
+      const eased = 1 - Math.pow(1-p, 3);
+      setVal(target*eased);
+      if(p<1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return ()=>cancelAnimationFrame(raf);
+  },[active, target]);
+  return val;
+}
+
+function useInView(threshold=0.4){
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(()=>{
+    const el = ref.current;
+    if(!el) return;
+    const io = new IntersectionObserver(([entry])=>{
+      if(entry.isIntersecting){ setInView(true); io.disconnect(); }
+    }, { threshold });
+    io.observe(el);
+    return ()=>io.disconnect();
+  },[]);
+  return [ref, inView];
+}
+
+function useHashRoute(){
+  const [hash, setHash] = useState(window.location.hash || '#/');
+  useEffect(()=>{
+    const onHash = ()=> setHash(window.location.hash || '#/');
+    window.addEventListener('hashchange', onHash);
+    return ()=>window.removeEventListener('hashchange', onHash);
+  },[]);
+  return hash;
+}
+
+const PHONE_DISPLAY = '(908) 498-9690';
+const PHONE_TEL = 'tel:+19084989690';
+const VAN_IMAGE = 'assets/van.jpeg';
+
+/* ---------------- data ---------------- */
+
+const SERVICES = [
+  { slug:'ac-repair-install', icon:'❄️', name:'AC Repair & Install', short:'Same-day AC repair and new system installs, sized right for your space.',
+    detail:'From a dead compressor in July to a full new central-air install, we diagnose fast and quote a flat price before we start. We work on every major brand and every building type Hudson County throws at us — walk-ups, high-rises, brownstones.',
+    bullets:['Same-day diagnosis on most calls','Flat, written pricing — no hourly surprises','New system installs sized for NJ humidity','All major brands serviced'] },
+  { slug:'heating-furnaces', icon:'🔥', name:'Heating & Furnaces', short:'Furnace repair, boiler service, and full heating system replacement.',
+    detail:'No heat is never convenient. We run 24/7 emergency heating service across Hudson County, plus planned furnace and boiler replacements before the cold hits.',
+    bullets:['24/7 no-heat emergency response','Furnace, boiler & heat pump repair','Full system replacement & permits','Pre-winter tune-ups'] },
+  { slug:'ductless-mini-splits', icon:'🧊', name:'Ductless Mini-Splits', short:'Single and multi-zone ductless systems for apartments with no ductwork.',
+    detail:'Most pre-war Jersey City and Hoboken buildings were never built with ductwork. Ductless mini-splits give you room-by-room heating and cooling without tearing open a wall.',
+    bullets:['No ductwork required','Room-by-room temperature control','Whisper-quiet indoor units','Rebate-eligible high-efficiency models'] },
+  { slug:'indoor-air-quality', icon:'🌬️', name:'Indoor Air Quality', short:'Filtration, humidity control, and UV air purification systems.',
+    detail:'City air, old ducts, and sealed-up apartments add up. We install filtration, dehumidification, and UV purification systems that actually move the needle on what you\'re breathing.',
+    bullets:['Whole-home air purifiers','Humidity & dehumidification control','UV germicidal lighting','Allergy & odor-focused filtration'] },
+  { slug:'ductwork-cleaning', icon:'🧹', name:'Ductwork & Cleaning', short:'Duct design, sealing, repair, and full system cleaning.',
+    detail:'Leaky, dirty ducts quietly inflate your utility bill and choke your airflow. We inspect, seal, repair, and clean ductwork so the system you already paid for actually performs.',
+    bullets:['Full duct inspection & sealing','Airflow balancing','Professional duct cleaning','New duct design for renovations'] },
+  { slug:'commercial-hvac', icon:'🏢', name:'Commercial HVAC', short:'Rooftop units, multi-zone systems, and service contracts for local business.',
+    detail:'Retail, office, and multi-family properties across Hudson County trust us for rooftop units, VRF systems, and scheduled maintenance contracts that keep tenants comfortable and downtime at zero.',
+    bullets:['Rooftop & split system service','Multi-family & mixed-use buildings','Preventive maintenance contracts','Emergency commercial response'] },
+];
+
+const TOWNS = [
+  { slug:'jersey-city', name:'Jersey City' },
+  { slug:'hoboken', name:'Hoboken' },
+  { slug:'bayonne', name:'Bayonne' },
+  { slug:'union-city', name:'Union City' },
+  { slug:'west-new-york', name:'West New York' },
+  { slug:'weehawken', name:'Weehawken' },
+  { slug:'north-bergen', name:'North Bergen' },
+  { slug:'secaucus', name:'Secaucus' },
+  { slug:'kearny', name:'Kearny' },
+  { slug:'harrison', name:'Harrison' },
+];
+
+const TESTIMONIALS = [
+  { name:'Marisol T.', hood:'Downtown Jersey City', quote:'Called at 11pm with no heat, tech was at my door before midnight. Fixed, gone, fair price. That never happens.' },
+  { name:'Dave K.', hood:'Hoboken', quote:'Quoted a flat price for a mini-split install before they touched a screwdriver. No games, no upsell.' },
+  { name:'Priya S.', hood:'Journal Square', quote:'Old brownstone, zero ductwork — they knew exactly what to do. Two units, one afternoon, quiet as a fridge.' },
+  { name:'Anthony R.', hood:'Bayonne', quote:'Been using them for the Comfort Club for two years. Tune-ups actually happen, no chasing anyone down.' },
+  { name:'Grace L.', hood:'Union City', quote:'Honest about what didn\'t need replacing yet. Saved me from a system I didn\'t need for another few years.' },
+  { name:'Omar F.', hood:'Secaucus', quote:'Commercial rooftop unit went down on a Sunday. They had it running before we opened Monday morning.' },
+];
+
+const FAQS = [
+  { q:'How fast can you get to my home in Jersey City?', a:'For no-heat and no-AC emergencies we aim to have a tech on site within 60 minutes, 24/7, anywhere in Hudson County.' },
+  { q:'Do you give upfront pricing before you start?', a:'Yes. Every job gets a flat, written price before we touch anything — no hourly guessing, no surprise invoice.' },
+  { q:'Are you licensed to work in New Jersey?', a:'Yes, we\'re fully licensed and insured under NJ HVAC License #[PLACEHOLDER].' },
+  { q:'What towns do you service?', a:'Jersey City, Hoboken, Bayonne, Union City, West New York, Weehawken, North Bergen, Secaucus, Kearny, and Harrison.' },
+  { q:'Do you offer financing?', a:'Yes, qualified customers can get 0% financing for 12 months on new system installs.' },
+  { q:'What\'s included in the Comfort Club membership?', a:'Priority scheduling, two tune-ups per year, 15% off parts, and no trip fees for members.' },
+  { q:'Do you work on older buildings and walk-ups?', a:'Constantly — Hudson County\'s housing stock is our specialty, from pre-war Jersey City brownstones to Hoboken high-rises.' },
+  { q:'Can you install ductless mini-splits in a unit with no ductwork?', a:'Yes, ductless mini-splits are one of our most common installs in exactly that situation — no ducts required.' },
+];
+
+/* ---------------- small building blocks ---------------- */
+
+function Magnetic({ children, className, as:Comp='button', ...rest }){
+  const ref = useRef(null);
+  const onMove = (e)=>{
+    const el = ref.current; if(!el) return;
+    const r = el.getBoundingClientRect();
+    const mx = e.clientX - (r.left + r.width/2);
+    const my = e.clientY - (r.top + r.height/2);
+    const dist = Math.sqrt(mx*mx+my*my);
+    const radius = 70;
+    if(dist < radius*2.2){
+      const strength = Math.max(0, 1 - dist/(radius*2.2));
+      el.style.transform = `translate(${mx*0.35*strength}px, ${my*0.35*strength}px)`;
+    }
+  };
+  const onLeave = ()=>{ if(ref.current) ref.current.style.transform = 'translate(0,0)'; };
+  return (
+    <Comp ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} className={"magnetic "+(className||'')} {...rest}>
+      {children}
+    </Comp>
+  );
+}
+
+function CTAPrimary({ children, href='#book', className='', onClick }){
+  return (
+    <Magnetic as="a" href={href} onClick={onClick}
+      className={"inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-display font-semibold text-[15px] accent-grad text-[#080C14] accent-glow hover:brightness-110 transition " + className}>
+      {children}
+    </Magnetic>
+  );
+}
+function CTAGhost({ children, href=PHONE_TEL, className='' }){
+  return (
+    <Magnetic as="a" href={href}
+      className={"inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-display font-semibold text-[15px] border border-white/20 hover:border-white/40 hover:bg-white/5 transition " + className}>
+      {children}
+    </Magnetic>
+  );
+}
+
+function SectionLabel({ children }){
+  return <div className="reveal text-xs font-display font-semibold tracking-[0.2em] uppercase accent-text-grad mb-3">{children}</div>;
+}
+
+function Waveform({ flip=false }){
+  return (
+    <div className="w-full overflow-hidden leading-none -mb-px" aria-hidden="true">
+      <svg viewBox="0 0 1200 80" className={"w-full h-16 md:h-20 " + (flip?'scale-y-[-1]':'')} preserveAspectRatio="none">
+        <path d="M0,40 C150,10 300,70 450,40 C600,10 750,70 900,40 C1050,10 1150,55 1200,40 L1200,80 L0,80 Z"
+          fill="url(#waveGrad)">
+          <animate attributeName="d" dur="10s" repeatCount="indefinite"
+            values="M0,40 C150,10 300,70 450,40 C600,10 750,70 900,40 C1050,10 1150,55 1200,40 L1200,80 L0,80 Z;
+                    M0,40 C150,65 300,15 450,40 C600,65 750,15 900,40 C1050,65 1150,25 1200,40 L1200,80 L0,80 Z;
+                    M0,40 C150,10 300,70 450,40 C600,10 750,70 900,40 C1050,10 1150,55 1200,40 L1200,80 L0,80 Z" />
+        </path>
+        <defs>
+          <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="var(--c1)" />
+            <stop offset="50%" stopColor="var(--c2)" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="var(--c1)" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  );
+}
+
+/* ---------------- thermostat dial ---------------- */
+
+function ThermostatDial({ temp, setTemp }){
+  const ref = useRef(null);
+  const dragging = useRef(false);
+
+  const angleFromEvent = (clientX, clientY)=>{
+    const el = ref.current; if(!el) return null;
+    const r = el.getBoundingClientRect();
+    const cx = r.left + r.width/2, cy = r.top + r.height/2;
+    let deg = Math.atan2(clientY-cy, clientX-cx) * 180/Math.PI; // -180..180, 0 = right
+    deg = deg + 90; // 0 at top
+    if(deg < 0) deg += 360;
+    // usable arc: 270deg starting at -135(top-left) through top to +135(top-right); map full 360 minus 90 bottom gap
+    // simplify: map full circle, but block bottom 60deg dead zone
+    return deg;
+  };
+
+  const setFromAngle = (deg)=>{
+    // dead zone bottom 60deg (300..360 excluded region maps to clamp)
+    let usable = deg;
+    if(usable > 330) usable = 330;
+    if(usable < 30) usable = 30;
+    const pct = ((usable-30)/300)*100;
+    setTemp(Math.max(0, Math.min(100, pct)));
+  };
+
+  const onDown = (e)=>{ dragging.current = true; handleMove(e); };
+  const onUp = ()=>{ dragging.current = false; };
+  const handleMove = (e)=>{
+    if(!dragging.current) return;
+    const p = e.touches ? e.touches[0] : e;
+    const deg = angleFromEvent(p.clientX, p.clientY);
+    if(deg!=null) setFromAngle(deg);
+  };
+
+  useEffect(()=>{
+    const move = (e)=>{ if(dragging.current){ handleMove(e); if(e.cancelable) e.preventDefault(); } };
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchmove', move, { passive:false });
+    window.addEventListener('touchend', onUp);
+    return ()=>{
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener('touchmove', move);
+      window.removeEventListener('touchend', onUp);
+    };
+  },[]);
+
+  const knobDeg = 30 + (temp/100)*300 - 90; // convert back for CSS rotate (0deg = right in css rotate space matches atan convention roughly)
+  const label = temp < 33 ? 'Cooling' : temp > 66 ? 'Heating' : 'Balanced';
+
+  return (
+    <div className="flex flex-col items-center select-none" aria-hidden="false">
+      <div
+        ref={ref}
+        role="slider"
+        aria-label="Comfort temperature dial, drag to shift site theme between cooling and heating"
+        aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(temp)}
+        tabIndex={0}
+        onKeyDown={(e)=>{
+          if(e.key==='ArrowLeft'||e.key==='ArrowDown') setTemp(Math.max(0,temp-5));
+          if(e.key==='ArrowRight'||e.key==='ArrowUp') setTemp(Math.min(100,temp+5));
+        }}
+        onMouseDown={onDown}
+        onTouchStart={onDown}
+        className="dial-ring relative w-52 h-52 md:w-64 md:h-64 rounded-full glass cursor-grab active:cursor-grabbing flex items-center justify-center"
+        style={{ boxShadow:`0 0 60px -10px var(--c2), inset 0 0 40px -10px var(--c3)` }}
+      >
+        <div className="absolute inset-3 rounded-full border border-white/10"></div>
+        <div className="absolute inset-6 rounded-full" style={{ background:'radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--c3) 18%, transparent), transparent 70%)' }}></div>
+
+        {/* tick marks */}
+        {Array.from({length:24}).map((_,i)=>{
+          const d = (i/24)*300 - 150;
+          return <div key={i} className="absolute left-1/2 top-1/2 w-[2px] h-3 bg-white/15 origin-bottom"
+            style={{ transform:`rotate(${d}deg) translateY(-98px)` }} />;
+        })}
+
+        {/* knob */}
+        <div className="absolute w-5 h-5 rounded-full accent-grad accent-glow"
+          style={{ transform:`rotate(${knobDeg}deg) translate(98px) rotate(${-knobDeg}deg)` }} />
+
+        <div className="text-center pointer-events-none">
+          <div className="text-4xl md:text-5xl font-display font-bold tabular accent-text-grad">{Math.round(60 + (temp/100)*20)}°</div>
+          <div className="text-[11px] tracking-[0.15em] uppercase text-white/50 mt-1">{label}</div>
+        </div>
+      </div>
+      <p className="mt-4 text-sm text-white/50 max-w-[220px] text-center">Drag the dial — the whole site shifts with it.</p>
+    </div>
+  );
+}
+
+/* ---------------- hero particles ---------------- */
+
+function HeroParticles(){
+  const canvasRef = useRef(null);
+  useEffect(()=>{
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    let raf; let particles = [];
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
+    const COUNT = reduced ? 0 : (isMobile ? 26 : 60);
+
+    function resize(){
+      canvas.width = canvas.offsetWidth * devicePixelRatio;
+      canvas.height = canvas.offsetHeight * devicePixelRatio;
+    }
+    function init(){
+      resize();
+      particles = Array.from({length:COUNT}).map(()=>({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: (Math.random()*1.6+0.6) * devicePixelRatio,
+        vx: (Math.random()*0.4+0.15) * devicePixelRatio,
+        vy: (Math.random()-0.5)*0.15*devicePixelRatio,
+        t: Math.random(),
+      }));
+    }
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      const w = canvas.width;
+      particles.forEach(p=>{
+        p.x += p.vx; p.y += p.vy + Math.sin(p.x*0.005)*0.15;
+        if(p.x > w+20) p.x = -20;
+        const frac = p.x / w; // 0 left(cold) -> 1 right(warm)
+        const col = lerpColor(COLD.c3, WARM.c3, frac);
+        ctx.beginPath();
+        ctx.fillStyle = col;
+        ctx.globalAlpha = 0.55;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fill();
+      });
+      raf = requestAnimationFrame(draw);
+    }
+    init();
+    if(!reduced) draw(); else { ctx.clearRect(0,0,canvas.width,canvas.height); }
+    const onResize = ()=>init();
+    window.addEventListener('resize', onResize);
+    return ()=>{ cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); };
+  },[]);
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-70" aria-hidden="true" />;
+}
+
+/* ---------------- header ---------------- */
+
+function Header({ onNav }){
+  const [shrink, setShrink] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(()=>{
+    const onScroll = ()=> setShrink(window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive:true });
+    return ()=>window.removeEventListener('scroll', onScroll);
+  },[]);
+  useEffect(()=>{
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+  },[mobileOpen]);
+
+  const links = [
+    { href:'#services', label:'Services' },
+    { href:'#areas', label:'Service Area' },
+    { href:'#faq', label:'FAQ' },
+  ];
+
+  return (
+    <>
+      {/* utility bar */}
+      <div className="hidden md:flex items-center justify-end gap-6 px-6 py-2 text-xs text-white/60 border-b border-white/5 bg-[#050810]">
+        <span>24/7 Emergency Line — <a href={PHONE_TEL} className="text-white hover:accent-text-grad underline decoration-white/20">{PHONE_DISPLAY}</a></span>
+        <span className="text-white/20">|</span>
+        <span>Serving Jersey City &amp; all of Hudson County</span>
+        <a href="#book" className="ml-2 accent-grad text-[#080C14] font-display font-semibold rounded-full px-4 py-1.5">Book Online</a>
+      </div>
+
+      <header className={"sticky top-0 z-40 transition-all duration-300 " + (shrink ? 'py-2 glass shadow-[0_1px_0_rgba(255,255,255,0.06)]' : 'py-4 bg-transparent')}>
+        <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
+          <a href="#/" className="flex items-center gap-2 font-display font-extrabold text-lg tracking-tight">
+            <span className="w-8 h-8 rounded-lg accent-grad flex items-center justify-center text-sm">JC</span>
+            <span className="hidden sm:inline">Jersey City <span className="accent-text-grad">HVAC</span> Pros</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/75">
+            {links.map(l=> <a key={l.href} href={l.href} className="hover:text-white transition">{l.label}</a>)}
+          </nav>
+          <div className="hidden md:flex items-center gap-3">
+            <CTAGhost className="!px-5 !py-2.5 text-sm">Call {PHONE_DISPLAY}</CTAGhost>
+            <CTAPrimary href="#book" className="!px-5 !py-2.5 text-sm">Book Free Estimate</CTAPrimary>
+          </div>
+          <button aria-label="Open menu" aria-expanded={mobileOpen} onClick={()=>setMobileOpen(true)}
+            className="md:hidden w-10 h-10 rounded-full glass flex items-center justify-center">
+            <span className="sr-only">Menu</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4H16M2 9H16M2 14H16" stroke="white" strokeWidth="1.6" strokeLinecap="round"/></svg>
+          </button>
+        </div>
+      </header>
+
+      {/* mobile nav overlay */}
+      <div className={"md:hidden fixed inset-0 z-50 transition-opacity duration-300 " + (mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none')}>
+        <div className="absolute inset-0 bg-[#080C14]/98 backdrop-blur-xl"></div>
+        <div className={"relative h-full flex flex-col px-8 pt-8 " + (mobileOpen ? 'mobile-nav-open' : '')}>
+          <div className="flex items-center justify-between">
+            <span className="font-display font-extrabold text-lg">Jersey City <span className="accent-text-grad">HVAC</span></span>
+            <button aria-label="Close menu" onClick={()=>setMobileOpen(false)} className="w-10 h-10 rounded-full glass flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="white" strokeWidth="1.6" strokeLinecap="round"/></svg>
+            </button>
+          </div>
+          <nav className="flex flex-col gap-1 mt-12">
+            {links.map((l,i)=>(
+              <a key={l.href} onClick={()=>setMobileOpen(false)} href={l.href}
+                className="mobile-nav-link text-3xl font-display font-bold py-3 border-b border-white/10"
+                style={{ transitionDelay: mobileOpen ? (i*70)+'ms' : '0ms' }}>{l.label}</a>
+            ))}
+          </nav>
+          <div className="mt-auto mb-10 flex flex-col gap-3">
+            <CTAPrimary href="#book" onClick={()=>setMobileOpen(false)}>Book Free Estimate</CTAPrimary>
+            <CTAGhost>Call {PHONE_DISPLAY}</CTAGhost>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function MobileBottomBar(){
+  return (
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-40 grid grid-cols-2 gap-px bg-white/10 border-t border-white/10" style={{ paddingBottom:'env(safe-area-inset-bottom)' }}>
+      <a href={PHONE_TEL} className="bg-[#0B111F] text-center py-3.5 font-display font-semibold text-sm flex items-center justify-center gap-2">
+        <span>📞</span> Call Now
+      </a>
+      <a href="#book" className="accent-grad text-[#080C14] text-center py-3.5 font-display font-semibold text-sm flex items-center justify-center gap-2">
+        Book Online
+      </a>
+    </div>
+  );
+}
+
+/* ---------------- hero ---------------- */
+
+function Hero({ temp, setTemp }){
+  const words = "Hudson County's Fastest HVAC Response".split(' ');
+  return (
+    <section className="relative overflow-hidden pt-14 md:pt-20 pb-24 md:pb-32">
+      <div className="absolute inset-0" style={{ background:'radial-gradient(80% 60% at 30% 0%, color-mix(in srgb, var(--c2) 25%, transparent), transparent), radial-gradient(60% 50% at 90% 30%, color-mix(in srgb, var(--c2) 18%, transparent), transparent)' }}></div>
+      <div className="hero-van hidden md:block" aria-hidden="true">
+        <img src={VAN_IMAGE} alt="Jersey City HVAC Professionals branded service van parked on a residential street" loading="eager" />
+      </div>
+      <div className="absolute inset-0" style={{ background:'linear-gradient(100deg, var(--bg) 0%, transparent 42%), linear-gradient(0deg, var(--bg) 5%, transparent 55%)' }}></div>
+      <HeroParticles />
+      <div className="relative max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center">
+        <div>
+          <div className="reveal reveal-visible inline-flex items-center gap-2 text-xs font-medium tracking-wide uppercase text-white/60 border border-white/15 rounded-full px-4 py-1.5 mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Answering calls now — 24/7 across Hudson County
+          </div>
+          <h1 className="font-display font-black leading-[0.98] tracking-tight text-[40px] sm:text-6xl lg:text-[76px]">
+            {words.map((w,i)=>(
+              <span key={i} className="inline-block overflow-hidden align-bottom mr-3 md:mr-4">
+                <span className="inline-block reveal reveal-visible" style={{ transitionDelay:(i*70)+'ms' }}>
+                  {i>=2 && i<=3 ? <span className="accent-text-grad">{w}</span> : w}
+                </span>
+              </span>
+            ))}
+          </h1>
+          <p className="reveal reveal-visible mt-6 text-lg md:text-xl text-white/65 max-w-xl" style={{ transitionDelay:'260ms' }}>
+            Jersey City HVAC Professionals fixes furnaces and cools apartments across Jersey City, Hoboken, and every corner of Hudson County — same-day diagnosis, flat upfront pricing, no runaround.
+          </p>
+          <div className="reveal reveal-visible mt-9 flex flex-wrap gap-4" style={{ transitionDelay:'340ms' }}>
+            <CTAPrimary href="#book">Book Free Estimate</CTAPrimary>
+            <CTAGhost>Call Now — {PHONE_DISPLAY}</CTAGhost>
+          </div>
+          <div className="reveal reveal-visible mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/55" style={{ transitionDelay:'400ms' }}>
+            <span>✓ Licensed &amp; Insured</span>
+            <span>✓ NJ HVAC Lic #[PLACEHOLDER]</span>
+            <span>✓ 24/7 Emergency Service</span>
+            <span>✓ 0% Financing Available</span>
+          </div>
+        </div>
+        <div className="reveal reveal-visible flex justify-center lg:justify-end" style={{ transitionDelay:'200ms' }}>
+          <ThermostatDial temp={temp} setTemp={setTemp} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- emergency band ---------------- */
+
+function EmergencyBand(){
+  const ref = useReveal();
+  return (
+    <section ref={ref} className="relative py-10 border-y border-white/10" style={{ background:'linear-gradient(90deg, color-mix(in srgb, var(--c1) 80%, black), color-mix(in srgb, var(--c2) 35%, black))' }}>
+      <div className="reveal reveal-visible max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <p className="font-display text-2xl md:text-3xl font-bold">No heat? No A/C? <span className="accent-text-grad">We answer in under 60 minutes.</span></p>
+          <p className="text-white/60 mt-1">Live dispatcher, real technician, every hour of every day.</p>
+        </div>
+        <CTAPrimary href={PHONE_TEL} className="whitespace-nowrap">Call {PHONE_DISPLAY}</CTAPrimary>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- services grid ---------------- */
+
+function ServiceCard({ s, i }){
+  return (
+    <a href={"#/services/"+s.slug} className="reveal trace-card group relative rounded-2xl glass p-7 flex flex-col gap-4 transition-transform duration-300 hover:-translate-y-1" style={{ transitionDelay:(i*60)+'ms' }}>
+      <div className="w-12 h-12 rounded-xl accent-grad flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">{s.icon}</div>
+      <h3 className="font-display font-bold text-xl">{s.name}</h3>
+      <p className="text-white/60 text-sm leading-relaxed">{s.short}</p>
+      <span className="mt-auto text-sm font-semibold accent-text-grad inline-flex items-center gap-1">
+        Learn more <span className="transition-transform group-hover:translate-x-1">→</span>
+      </span>
+    </a>
+  );
+}
+
+function ServicesGrid(){
+  const ref = useReveal();
+  return (
+    <section id="services" ref={ref} className="py-24 md:py-32 max-w-7xl mx-auto px-5 md:px-8">
+      <SectionLabel>What we fix</SectionLabel>
+      <h2 className="reveal font-display font-extrabold text-4xl md:text-5xl max-w-2xl">Every system, every building type, every borough of Hudson County.</h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+        {SERVICES.map((s,i)=>(<ServiceCard s={s} i={i} key={s.slug} />))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- how it works ---------------- */
+
+function HowItWorks(){
+  const ref = useReveal();
+  const steps = [
+    { n:'01', t:'Call or book online', d:'Reach a real person day or night — phone, text, or the form below. No phone trees.' },
+    { n:'02', t:'Same-day diagnosis', d:'A local tech shows up, finds the real problem, and explains it in plain English.' },
+    { n:'03', t:'Upfront flat price, then we fix it', d:'You approve a written price before any work starts. Then we get it done.' },
+  ];
+  return (
+    <section ref={ref} className="py-24 md:py-32 max-w-7xl mx-auto px-5 md:px-8">
+      <SectionLabel>How it works</SectionLabel>
+      <h2 className="reveal font-display font-extrabold text-4xl md:text-5xl max-w-xl mb-14">Three steps. No surprises.</h2>
+      <div className="grid md:grid-cols-3 gap-8 relative">
+        <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        {steps.map((s,i)=>(
+          <div key={s.n} className="reveal relative" style={{ transitionDelay:(i*120)+'ms' }}>
+            <div className="w-16 h-16 rounded-2xl glass flex items-center justify-center font-display font-black text-xl accent-text-grad mb-6">{s.n}</div>
+            <h3 className="font-display font-bold text-xl mb-2">{s.t}</h3>
+            <p className="text-white/60 leading-relaxed">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- team on your street ---------------- */
+
+function useParallax(strength=20){
+  const ref = useRef(null);
+  useEffect(()=>{
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const el = ref.current;
+    if(reduced || !el) return;
+    let raf = null;
+    const onScroll = ()=>{
+      if(raf) return;
+      raf = requestAnimationFrame(()=>{
+        raf = null;
+        const r = el.getBoundingClientRect();
+        const vh = window.innerHeight || 1;
+        const center = r.top + r.height/2;
+        const progress = (center - vh/2) / (vh/2 + r.height/2);
+        const clamped = Math.max(-1, Math.min(1, progress));
+        el.style.transform = `translateY(${(-clamped*strength).toFixed(2)}px)`;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+    return ()=>{ window.removeEventListener('scroll', onScroll); if(raf) cancelAnimationFrame(raf); };
+  },[strength]);
+  return ref;
+}
+
+function TeamOnStreet(){
+  const revealRef = useReveal();
+  const parallaxRef = useParallax(20);
+  const pills = ['Same-day service', 'Stocked for common repairs', 'Uniformed, background-checked techs'];
+  return (
+    <section ref={revealRef} className="py-24 md:py-32 max-w-7xl mx-auto px-5 md:px-8">
+      <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
+        <div className="relative reveal reveal-scale">
+          <div ref={parallaxRef}>
+            <div className="van-glow"></div>
+            <div className="van-frame van-float">
+              <div className="van-frame-inner">
+                <img
+                  src={VAN_IMAGE}
+                  alt="Jersey City HVAC Professionals branded service van parked on a residential street"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p className="reveal text-xs font-display font-semibold tracking-[0.2em] uppercase accent-text-grad mb-3">Local &amp; Licensed</p>
+          <h2 className="reveal font-display font-extrabold text-4xl md:text-5xl mb-5">You'll recognize us when we pull up.</h2>
+          <p className="reveal text-white/60 leading-relaxed mb-8 max-w-md" style={{ transitionDelay:'80ms' }}>
+            Every truck is fully stocked before it leaves the yard, and every technician lives right here in Hudson County. Most repairs get finished in a single visit — no subcontractors, no strangers, no second appointment.
+          </p>
+          <div className="reveal flex flex-wrap gap-2.5 mb-9" style={{ transitionDelay:'140ms' }}>
+            {pills.map(p=>(
+              <span key={p} className="text-xs font-medium rounded-full glass px-4 py-2 text-white/75">{p}</span>
+            ))}
+          </div>
+          <div className="reveal" style={{ transitionDelay:'200ms' }}>
+            <CTAPrimary href="#book">Book a Free Estimate</CTAPrimary>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- stats ---------------- */
+
+function Stat({ value, suffix, label, active, decimals=0 }){
+  const v = useCounter(value, active);
+  return (
+    <div className="reveal text-center">
+      <div className="font-display font-black text-4xl md:text-5xl tabular accent-text-grad">
+        {v.toFixed(decimals)}{suffix}
+      </div>
+      <div className="text-white/55 text-sm mt-2">{label}</div>
+    </div>
+  );
+}
+
+function StatsBand(){
+  const [ref, inView] = useInView(0.5);
+  return (
+    <section ref={ref} className="py-20 border-y border-white/10">
+      <div className="max-w-6xl mx-auto px-5 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-10">
+        <Stat value={12} suffix="+" label="Years serving Hudson County" active={inView} />
+        <Stat value={9400} suffix="+" label="Jobs completed" active={inView} />
+        <Stat value={58} suffix=" min" label="Average response time" active={inView} />
+        <Stat value={4.9} suffix=" ★" label="Google rating" active={inView} decimals={1} />
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- financing ---------------- */
+
+function Financing(){
+  const ref = useReveal();
+  return (
+    <section ref={ref} className="py-16">
+      <div className="reveal max-w-6xl mx-auto px-5 md:px-8 rounded-3xl glass p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8"
+        style={{ background:'linear-gradient(120deg, color-mix(in srgb, var(--c2) 20%, transparent), transparent)' }}>
+        <div>
+          <p className="text-xs font-display font-semibold tracking-[0.2em] uppercase accent-text-grad mb-3">Financing</p>
+          <h3 className="font-display font-extrabold text-3xl md:text-4xl mb-2">0% for 12 months on new systems.</h3>
+          <p className="text-white/60 max-w-lg">Replace a dying furnace or AC without draining savings. Quick approval, no prepayment penalty.</p>
+        </div>
+        <CTAPrimary href="#book" className="whitespace-nowrap">Check My Rate</CTAPrimary>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- manufacturer marquee ---------------- */
+
+function LogoMarquee(){
+  const brands = ['Carrier','Trane','Lennox','Mitsubishi Electric','Rheem','Goodman','Bradford White'];
+  const list = [...brands, ...brands];
+  return (
+    <section className="py-16 border-y border-white/10">
+      <p className="text-center text-xs tracking-[0.2em] uppercase text-white/40 mb-8">Certified to install &amp; service</p>
+      <div className="marquee-pause overflow-hidden hide-scrollbar">
+        <div className="marquee-track">
+          {list.map((b,i)=>(
+            <span key={i} className="font-display font-bold text-2xl md:text-3xl px-10 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300 whitespace-nowrap">{b}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- testimonials ---------------- */
+
+function Stars(){
+  return <div className="text-amber-400 text-sm tracking-wider" aria-hidden="true">★★★★★</div>;
+}
+
+function Testimonials(){
+  const ref = useReveal();
+  return (
+    <section ref={ref} className="py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 mb-10">
+        <SectionLabel>Reviews</SectionLabel>
+        <h2 className="reveal font-display font-extrabold text-4xl md:text-5xl max-w-xl">Hudson County says it best.</h2>
+      </div>
+      <div className="snap-row flex gap-5 overflow-x-auto px-5 md:px-8 pb-6 hide-scrollbar">
+        {TESTIMONIALS.map((t,i)=>(
+          <div key={i} className="reveal snap-item shrink-0 w-[300px] md:w-[360px] rounded-2xl glass p-7" style={{ transitionDelay:(i*70)+'ms' }}>
+            <Stars />
+            <p className="mt-4 text-white/75 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+            <div className="mt-6 text-sm">
+              <div className="font-semibold">{t.name}</div>
+              <div className="text-white/45">{t.hood}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- service area ---------------- */
+
+function ServiceArea(){
+  const ref = useReveal();
+  const [hovered, setHovered] = useState(null);
+  return (
+    <section id="areas" ref={ref} className="py-24 md:py-32 max-w-7xl mx-auto px-5 md:px-8">
+      <SectionLabel>Where we work</SectionLabel>
+      <h2 className="reveal font-display font-extrabold text-4xl md:text-5xl max-w-xl mb-14">All of Hudson County, block by block.</h2>
+      <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="reveal relative rounded-3xl glass p-8 aspect-square flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0" style={{ background:'radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--c2) 25%, transparent), transparent 70%)' }}></div>
+          <svg viewBox="0 0 300 300" className="relative w-full h-full">
+            {TOWNS.map((t,i)=>{
+              const angle = (i/TOWNS.length)*Math.PI*2 - Math.PI/2;
+              const r = 105;
+              const x = 150 + Math.cos(angle)*r;
+              const y = 150 + Math.sin(angle)*r;
+              const active = hovered===t.slug;
+              return (
+                <g key={t.slug} onMouseEnter={()=>setHovered(t.slug)} onMouseLeave={()=>setHovered(null)}>
+                  <a href={"#/areas/"+t.slug}>
+                    <circle cx={x} cy={y} r={active?9:6} fill={active? 'var(--c3)':'var(--c2)'} className="transition-all duration-300" />
+                    <text x={x} y={y-14} textAnchor="middle" fontSize="9" fill={active?'#fff':'rgba(255,255,255,0.55)'} className="font-sans transition-colors">{t.name}</text>
+                  </a>
+                </g>
+              );
+            })}
+            <circle cx="150" cy="150" r="3" fill="white" />
+          </svg>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          {TOWNS.map((t,i)=>(
+            <a key={t.slug} href={"#/areas/"+t.slug}
+              onMouseEnter={()=>setHovered(t.slug)} onMouseLeave={()=>setHovered(null)}
+              className={"reveal rounded-xl px-5 py-4 border transition-all duration-300 " + (hovered===t.slug ? 'accent-border bg-white/10' : 'border-white/10 hover:border-white/25')}
+              style={{ transitionDelay:(i*40)+'ms' }}>
+              <span className="font-display font-semibold">{t.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- faq ---------------- */
+
+function FAQItem({ item, open, onClick, i }){
+  return (
+    <div className="reveal border-b border-white/10" style={{ transitionDelay:(i*40)+'ms' }}>
+      <button onClick={onClick} aria-expanded={open} className="w-full flex items-center justify-between gap-4 py-6 text-left">
+        <span className="font-display font-semibold text-lg">{item.q}</span>
+        <span className={"shrink-0 w-8 h-8 rounded-full glass flex items-center justify-center transition-transform duration-300 " + (open?'rotate-45':'')}>+</span>
+      </button>
+      <div className={"acc-body " + (open?'open':'')}>
+        <div><p className="text-white/60 leading-relaxed pb-6 max-w-2xl">{item.a}</p></div>
+      </div>
+    </div>
+  );
+}
+
+function FAQ(){
+  const ref = useReveal();
+  const [open, setOpen] = useState(0);
+  return (
+    <section id="faq" ref={ref} className="py-24 md:py-32 max-w-4xl mx-auto px-5 md:px-8">
+      <SectionLabel>FAQ</SectionLabel>
+      <h2 className="reveal font-display font-extrabold text-4xl md:text-5xl mb-10">Questions, answered.</h2>
+      <div>
+        {FAQS.map((f,i)=>(
+          <FAQItem key={i} item={f} i={i} open={open===i} onClick={()=>setOpen(open===i?-1:i)} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- final CTA / booking form ---------------- */
+
+function BookingForm(){
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const errs = {};
+    if(!fd.get('name')) errs.name = 'Required';
+    if(!/^[\d\s()+-]{7,}$/.test(fd.get('phone')||'')) errs.phone = 'Enter a valid phone number';
+    if(fd.get('email') && !/^\S+@\S+\.\S+$/.test(fd.get('email'))) errs.email = 'Enter a valid email';
+    if(!fd.get('address')) errs.address = 'Required';
+    if(!fd.get('service')) errs.service = 'Select a service';
+    setErrors(errs);
+    if(Object.keys(errs).length===0) setSubmitted(true);
+  };
+
+  if(submitted){
+    return (
+      <div className="rounded-2xl glass p-10 text-center">
+        <div className="w-14 h-14 rounded-full accent-grad flex items-center justify-center text-2xl mx-auto mb-4">✓</div>
+        <h3 className="font-display font-bold text-2xl mb-2">Request received.</h3>
+        <p className="text-white/60">A dispatcher will call you shortly to confirm your appointment window. For anything urgent, call us directly at {PHONE_DISPLAY}.</p>
+      </div>
+    );
+  }
+
+  const field = "w-full rounded-xl border border-white/15 px-4 py-3 text-sm placeholder:text-white/35 focus:border-white/40 transition";
+
+  return (
+    <form onSubmit={onSubmit} noValidate className="rounded-2xl glass p-7 md:p-9 grid gap-4">
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="name" className="text-xs text-white/60 mb-1.5 block">Full name</label>
+          <input id="name" name="name" className={field} placeholder="Jane Rivera" />
+          {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+        </div>
+        <div>
+          <label htmlFor="phone" className="text-xs text-white/60 mb-1.5 block">Phone</label>
+          <input id="phone" name="phone" className={field} placeholder="(201) 555-0134" />
+          {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
+        </div>
+      </div>
+      <div>
+        <label htmlFor="email" className="text-xs text-white/60 mb-1.5 block">Email (optional)</label>
+        <input id="email" name="email" type="email" className={field} placeholder="jane@email.com" />
+        {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+      </div>
+      <div>
+        <label htmlFor="address" className="text-xs text-white/60 mb-1.5 block">Service address</label>
+        <input id="address" name="address" className={field} placeholder="123 Grove St, Jersey City, NJ" />
+        {errors.address && <p className="text-red-400 text-xs mt-1">{errors.address}</p>}
+      </div>
+      <div>
+        <label htmlFor="service" className="text-xs text-white/60 mb-1.5 block">Service type</label>
+        <select id="service" name="service" defaultValue="" className={field}>
+          <option value="" disabled>Select a service</option>
+          {SERVICES.map(s=> <option key={s.slug} value={s.name}>{s.name}</option>)}
+          <option value="Not sure">Not sure yet</option>
+        </select>
+        {errors.service && <p className="text-red-400 text-xs mt-1">{errors.service}</p>}
+      </div>
+      <div>
+        <label htmlFor="message" className="text-xs text-white/60 mb-1.5 block">What's going on? (optional)</label>
+        <textarea id="message" name="message" rows="3" className={field} placeholder="No heat since last night, thermostat reads 58°..."></textarea>
+      </div>
+      <Magnetic as="button" type="submit" className="mt-2 rounded-full accent-grad text-[#080C14] font-display font-semibold py-3.5 accent-glow hover:brightness-110 transition">
+        Request My Free Estimate
+      </Magnetic>
+      <p className="text-center text-xs text-white/40">or call us directly at <a href={PHONE_TEL} className="underline">{PHONE_DISPLAY}</a></p>
+    </form>
+  );
+}
+
+function FinalCTA(){
+  const ref = useReveal();
+  return (
+    <section id="book" ref={ref} className="relative py-24 md:py-32 overflow-hidden"
+      style={{ background:'linear-gradient(160deg, color-mix(in srgb, var(--c1) 90%, black), color-mix(in srgb, var(--c2) 45%, black) 60%, color-mix(in srgb, var(--c1) 90%, black))' }}>
+      <div className="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 items-start relative">
+        <div className="reveal">
+          <SectionLabel>Get started</SectionLabel>
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-5">Ready when you are.</h2>
+          <p className="text-white/65 text-lg max-w-md mb-8">Tell us what's going on and where — we'll call to confirm a same-day or next-day window. Emergencies jump the line.</p>
+          <div className="flex flex-wrap gap-4">
+            <CTAGhost>Call Now — {PHONE_DISPLAY}</CTAGhost>
+          </div>
+        </div>
+        <div className="reveal" style={{ transitionDelay:'120ms' }}>
+          <BookingForm />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- footer ---------------- */
+
+function Footer(){
+  return (
+    <footer className="border-t border-white/10 pt-16 pb-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-[1.2fr_1fr_1fr_1.2fr] gap-12">
+        <div>
+          <a href="#/" className="flex items-center gap-2 font-display font-extrabold text-lg mb-4">
+            <span className="w-8 h-8 rounded-lg accent-grad flex items-center justify-center text-sm">JC</span>
+            Jersey City HVAC Pros
+          </a>
+          <p className="text-white/50 text-sm leading-relaxed max-w-xs">Local, fast, honest-pricing HVAC service across Jersey City and Hudson County. Licensed, insured, and on call 24/7.</p>
+          <p className="text-white/40 text-sm mt-4">[PLACEHOLDER STREET ADDRESS]<br/>Jersey City, NJ [PLACEHOLDER ZIP]</p>
+          <p className="text-white/40 text-sm mt-2">NJ HVAC License #[PLACEHOLDER]</p>
+        </div>
+        <div>
+          <h4 className="font-display font-semibold mb-4 text-sm tracking-wide uppercase text-white/50">Services</h4>
+          <ul className="space-y-2.5 text-sm text-white/60">
+            {SERVICES.map(s=> <li key={s.slug}><a href={"#/services/"+s.slug} className="hover:text-white transition">{s.name}</a></li>)}
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-display font-semibold mb-4 text-sm tracking-wide uppercase text-white/50">Service Area</h4>
+          <ul className="space-y-2.5 text-sm text-white/60 columns-2">
+            {TOWNS.map(t=> <li key={t.slug}><a href={"#/areas/"+t.slug} className="hover:text-white transition">{t.name}</a></li>)}
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-display font-semibold mb-4 text-sm tracking-wide uppercase text-white/50">Hours</h4>
+          <table className="text-sm text-white/60 w-full mb-6">
+            <tbody>
+              <tr><td className="py-0.5 pr-4">Emergency line</td><td className="py-0.5 text-white">24/7</td></tr>
+              <tr><td className="py-0.5 pr-4">Mon–Fri</td><td className="py-0.5 text-white">[PLACEHOLDER]</td></tr>
+              <tr><td className="py-0.5 pr-4">Sat</td><td className="py-0.5 text-white">[PLACEHOLDER]</td></tr>
+              <tr><td className="py-0.5 pr-4">Sun</td><td className="py-0.5 text-white">[PLACEHOLDER]</td></tr>
+            </tbody>
+          </table>
+          <div className="flex gap-3 text-white/50">
+            <a href="#" aria-label="Facebook" className="hover:text-white transition">FB</a>
+            <a href="#" aria-label="Instagram" className="hover:text-white transition">IG</a>
+            <a href="#" aria-label="Google Business Profile" className="hover:text-white transition">G</a>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-5 md:px-8 mt-12">
+        <div className="rounded-2xl overflow-hidden border border-white/10 h-64">
+          <iframe title="Service area map" className="w-full h-full grayscale contrast-125 opacity-80" loading="lazy"
+            src="https://maps.google.com/maps?q=Jersey%20City%2C%20NJ&t=&z=11&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-5 md:px-8 mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/35">
+        <span>© {new Date().getFullYear()} Jersey City HVAC Professionals. All rights reserved.</span>
+        <span>Email: [PLACEHOLDER EMAIL] · Phone: {PHONE_DISPLAY}</span>
+      </div>
+    </footer>
+  );
+}
+
+/* ---------------- sub pages ---------------- */
+
+function PageShell({ children, backHref='#/' }){
+  const ref = useReveal();
+  useEffect(()=>{ window.scrollTo(0,0); },[]);
+  return (
+    <section ref={ref} className="max-w-4xl mx-auto px-5 md:px-8 py-24 md:py-32 min-h-[60vh]">
+      <a href={backHref} className="reveal reveal-visible text-sm text-white/50 hover:text-white transition inline-flex items-center gap-1 mb-8">← Back to home</a>
+      {children}
+    </section>
+  );
+}
+
+function ServicePage({ slug }){
+  const s = SERVICES.find(x=>x.slug===slug);
+  if(!s) return <PageShell><p>Service not found.</p></PageShell>;
+  return (
+    <PageShell>
+      <div className="reveal">
+        <div className="w-14 h-14 rounded-xl accent-grad flex items-center justify-center text-2xl mb-6">{s.icon}</div>
+        <h1 className="font-display font-black text-4xl md:text-5xl mb-5">{s.name}</h1>
+        <p className="text-white/65 text-lg leading-relaxed mb-8 max-w-2xl">{s.detail}</p>
+        <ul className="grid sm:grid-cols-2 gap-3 mb-10">
+          {s.bullets.map(b=>(
+            <li key={b} className="flex items-start gap-2 text-white/75 rounded-xl glass px-4 py-3 text-sm">
+              <span className="accent-text-grad">✓</span>{b}
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-wrap gap-4">
+          <CTAPrimary href="#book">Book Free Estimate</CTAPrimary>
+          <CTAGhost>Call {PHONE_DISPLAY}</CTAGhost>
+        </div>
+      </div>
+    </PageShell>
+  );
+}
+
+function TownPage({ slug }){
+  const t = TOWNS.find(x=>x.slug===slug);
+  if(!t) return <PageShell><p>Area not found.</p></PageShell>;
+  return (
+    <PageShell>
+      <div className="reveal">
+        <p className="text-xs font-display font-semibold tracking-[0.2em] uppercase accent-text-grad mb-3">Hudson County</p>
+        <h1 className="font-display font-black text-4xl md:text-5xl mb-5">HVAC Service in {t.name}, NJ</h1>
+        <p className="text-white/65 text-lg leading-relaxed mb-8 max-w-2xl">
+          Jersey City HVAC Professionals runs 24/7 heating and cooling service in {t.name} — same-day diagnosis, flat upfront pricing, and technicians who already know the building stock in your neighborhood.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-3 mb-10">
+          {SERVICES.map(s=>(
+            <a key={s.slug} href={"#/services/"+s.slug} className="flex items-center gap-3 rounded-xl glass px-4 py-3 text-sm hover:border-white/30 border border-transparent transition">
+              <span>{s.icon}</span>{s.name} in {t.name}
+            </a>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <CTAPrimary href="#book">Book Free Estimate</CTAPrimary>
+          <CTAGhost>Call {PHONE_DISPLAY}</CTAGhost>
+        </div>
+      </div>
+    </PageShell>
+  );
+}
+
+/* ---------------- app ---------------- */
+
+function App(){
+  const [temp, setTemp] = useState(20);
+  const [loading, setLoading] = useState(true);
+  const hash = useHashRoute();
+
+  useEffect(()=>{ applyTemp(temp); },[temp]);
+  useEffect(()=>{
+    const t = setTimeout(()=>setLoading(false), 550);
+    return ()=>clearTimeout(t);
+  },[]);
+
+  let route = { name:'home' };
+  if(hash.startsWith('#/services/')) route = { name:'service', slug: hash.replace('#/services/','') };
+  else if(hash.startsWith('#/areas/')) route = { name:'town', slug: hash.replace('#/areas/','') };
+
+  return (
+    <div>
+      <div aria-hidden={!loading} className={"fixed inset-0 z-[100] bg-[#080C14] flex items-center justify-center transition-opacity duration-500 " + (loading ? 'opacity-100' : 'opacity-0 pointer-events-none')}>
+        <div className="flex items-center gap-3">
+          <span className="w-10 h-10 rounded-xl accent-grad flex items-center justify-center font-display font-bold animate-pulse">JC</span>
+          <span className="font-display font-bold text-lg">Jersey City HVAC Pros</span>
+        </div>
+      </div>
+
+      <Header />
+
+      {route.name==='home' && (
+        <main>
+          <Hero temp={temp} setTemp={setTemp} />
+          <Waveform />
+          <EmergencyBand />
+          <ServicesGrid />
+          <Waveform flip />
+          <HowItWorks />
+          <TeamOnStreet />
+          <StatsBand />
+          <Financing />
+          <LogoMarquee />
+          <Testimonials />
+          <ServiceArea />
+          <FAQ />
+          <FinalCTA />
+        </main>
+      )}
+      {route.name==='service' && <main><ServicePage slug={route.slug} /></main>}
+      {route.name==='town' && <main><TownPage slug={route.slug} /></main>}
+
+      <Footer />
+      <MobileBottomBar />
+      <div className="md:hidden h-16" aria-hidden="true"></div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
